@@ -1,0 +1,463 @@
+
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Grand Kamala Lagoon - Template Landing Page Berbasis Kepatuhan Aturan</title>
+  <style>
+    :root{
+      --navy:#123b67;
+      --blue:#1f6fb2;
+      --light:#eef5fb;
+      --soft:#f7fbff;
+      --text:#1f2937;
+      --muted:#5b6472;
+      --line:#d9e4ef;
+      --green:#2e8b57;
+      --gold:#c78b2a;
+      --danger:#a63f3f;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      color:var(--text);
+      background:#f3f6f9;
+      line-height:1.5;
+    }
+    .container{
+      width:min(1120px, calc(100% - 32px));
+      margin:0 auto;
+    }
+    header{
+      background:linear-gradient(135deg, var(--navy), var(--blue));
+      color:#fff;
+      padding:18px 0 72px;
+    }
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      margin-bottom:42px;
+    }
+    .brand{
+      font-weight:700;
+      letter-spacing:.5px;
+      font-size:24px;
+    }
+    .nav{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+      font-size:14px;
+      opacity:.95;
+    }
+    .nav a{color:#fff; text-decoration:none}
+    .hero{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:28px;
+      align-items:center;
+    }
+    .hero-card{
+      background:rgba(255,255,255,.1);
+      border:1px solid rgba(255,255,255,.18);
+      backdrop-filter: blur(4px);
+      border-radius:20px;
+      padding:28px;
+    }
+    .eyebrow{
+      display:inline-block;
+      background:rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.2);
+      border-radius:999px;
+      padding:6px 12px;
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.3px;
+      margin-bottom:14px;
+    }
+    h1,h2,h3{margin:0 0 12px}
+    h1{font-size:44px; line-height:1.08}
+    .hero p{margin:0 0 18px; color:#edf4fb}
+    .cta-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px}
+    .btn{
+      display:inline-block;
+      text-decoration:none;
+      padding:12px 18px;
+      border-radius:12px;
+      font-weight:700;
+      border:1px solid transparent;
+    }
+    .btn-primary{background:#fff; color:var(--navy)}
+    .btn-secondary{background:transparent; color:#fff; border-color:rgba(255,255,255,.4)}
+    .hero-box{
+      background:#fff;
+      color:var(--text);
+      border-radius:18px;
+      padding:22px;
+      box-shadow:0 14px 30px rgba(11,33,58,.15);
+    }
+    .mini-list{padding-left:18px; margin:10px 0 0}
+    .mini-list li{margin:8px 0}
+    section{padding:56px 0}
+    .section-title{
+      text-align:center;
+      max-width:860px;
+      margin:0 auto 28px;
+    }
+    .section-title p{color:var(--muted); margin:0}
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:18px;
+    }
+    .grid-4{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:16px;
+    }
+    .card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:22px;
+      box-shadow:0 8px 20px rgba(15,35,60,.05);
+    }
+    .card h3{font-size:22px}
+    .card p{color:var(--muted); margin:0 0 10px}
+    .tag{
+      display:inline-block;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:700;
+      margin-bottom:10px;
+      background:var(--light);
+      color:var(--blue);
+    }
+    .highlight{
+      background:#fff;
+      border:1px solid var(--line);
+      border-left:6px solid var(--green);
+      border-radius:16px;
+      padding:18px 20px;
+      margin:20px 0 0;
+      color:var(--text);
+    }
+    .rule-box{
+      background:linear-gradient(180deg, #ffffff, #f8fbff);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:22px;
+    }
+    .rule-box ul{
+      margin:0;
+      padding-left:18px;
+    }
+    .rule-box li{margin:10px 0}
+    .compare{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+    .bad{border-top:5px solid var(--danger)}
+    .good{border-top:5px solid var(--green)}
+    .steps{
+      counter-reset:step;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+    }
+    .step{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:20px;
+      position:relative;
+      min-height:190px;
+    }
+    .step:before{
+      counter-increment:step;
+      content:counter(step);
+      width:34px;height:34px;
+      display:grid;place-items:center;
+      border-radius:50%;
+      background:var(--navy);
+      color:#fff;
+      font-weight:700;
+      margin-bottom:12px;
+    }
+    .faq details{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:16px 18px;
+      margin-bottom:12px;
+    }
+    .faq summary{font-weight:700; cursor:pointer}
+    footer{
+      background:#0d2743;
+      color:#dbe8f5;
+      padding:26px 0 40px;
+      margin-top:20px;
+    }
+    .footer-note{
+      font-size:14px;
+      color:#c5d7e9;
+    }
+    .small{
+      font-size:13px;
+      color:var(--muted);
+    }
+    @media (max-width: 900px){
+      .hero, .grid-3, .grid-4, .compare, .steps{
+        grid-template-columns:1fr;
+      }
+      h1{font-size:34px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="topbar">
+        <div class="brand">Ruang Bersama GKL - Versi Kepatuhan</div>
+        <nav class="nav">
+          <a href="#prinsip">Prinsip</a>
+          <a href="#aturan">Dasar Aturan</a>
+          <a href="#langkah">Langkah</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+      </div>
+
+      <div class="hero">
+        <div class="hero-card">
+          <div class="eyebrow">LINGKUNGAN BAIK HARUS SAH SECARA ATURAN</div>
+          <h1>Grand Kamala Lagoon yang Tertib, Aman, dan Sejalan dengan Regulasi</h1>
+          <p>
+            Ruang ini ditujukan untuk mendorong perbaikan pengelolaan kawasan secara terbuka,
+            namun tetap menempatkan hukum, fungsi bangunan, dan perizinan sebagai dasar utama.
+            Aspirasi penting, tetapi tidak dapat menggantikan aturan yang berlaku.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#aturan">Lihat Prinsip Kepatuhan</a>
+            <a class="btn btn-secondary" href="#langkah">Lihat Langkah Bersama</a>
+          </div>
+        </div>
+
+        <div class="hero-box">
+          <h3>Pesan Utama</h3>
+          <p class="small">Template ini menegaskan posisi yang seimbang:</p>
+          <ul class="mini-list">
+            <li>Perbaikan kawasan harus berbasis aturan, bukan sekadar opini mayoritas.</li>
+            <li>Fungsi hunian, keamanan, dan ketertiban wajib mengacu pada ketentuan yang berlaku.</li>
+            <li>Diskusi warga berguna untuk masukan, bukan untuk melegalkan pelanggaran.</li>
+            <li>Setiap perubahan pengelolaan harus dapat dipertanggungjawabkan secara hukum.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="prinsip">
+    <div class="container">
+      <div class="section-title">
+        <h2>Prinsip Dasar yang Perlu Ditegaskan</h2>
+        <p>
+          Website komunitas yang sehat seharusnya tidak menggiring opini seolah-olah suara terbanyak
+          dapat mengesampingkan ketentuan hukum. Aspirasi warga penting, tetapi legalitas tetap prioritas.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="tag">Prinsip 1</div>
+          <h3>Aturan di Atas Kepentingan</h3>
+          <p>
+            Kepentingan pemilik, penghuni, investor, maupun pengelola harus tunduk pada regulasi,
+            termasuk fungsi bangunan, tata tertib, dan ketentuan izin yang berlaku.
+          </p>
+        </div>
+        <div class="card">
+          <div class="tag">Prinsip 2</div>
+          <h3>Partisipasi Bukan Legitimasi Pelanggaran</h3>
+          <p>
+            Form, survei, atau konsolidasi warga dapat dipakai untuk menyerap masukan, tetapi tidak dapat
+            dijadikan dasar pembenaran bila suatu praktik bertentangan dengan peraturan.
+          </p>
+        </div>
+        <div class="card">
+          <div class="tag">Prinsip 3</div>
+          <h3>Profesional Harus Dapat Dipertanggungjawabkan</h3>
+          <p>
+            Istilah “lebih profesional” harus diwujudkan dengan SOP, kepatuhan, transparansi, dan
+            penegakan aturan yang konsisten, bukan sekadar slogan komunikasi.
+          </p>
+        </div>
+      </div>
+
+      <div class="highlight">
+        <strong>Kalimat kunci yang bisa dipasang:</strong>
+        “Kami mendukung perbaikan Grand Kamala Lagoon melalui dialog dan partisipasi,
+        namun setiap arah perubahan harus tetap selaras dengan hukum, fungsi bangunan,
+        serta ketentuan pengelolaan yang berlaku.”
+      </div>
+    </div>
+  </section>
+
+  <section id="aturan" style="background:var(--soft)">
+    <div class="container">
+      <div class="section-title">
+        <h2>Dasar Narasi yang Benar</h2>
+        <p>
+          Bagian ini dapat dipakai untuk mengoreksi pola komunikasi yang terlalu menonjolkan konsolidasi,
+          tetapi kurang menegaskan kepatuhan hukum.
+        </p>
+      </div>
+
+      <div class="grid-4">
+        <div class="rule-box">
+          <h3>Fungsi Bangunan</h3>
+          <ul>
+            <li>Penggunaan unit harus sesuai fungsi yang diizinkan.</li>
+            <li>Setiap aktivitas wajib menyesuaikan peraturan yang mengikat kawasan.</li>
+            <li>Interpretasi kepentingan ekonomi tidak boleh mengubah fungsi hukum bangunan.</li>
+          </ul>
+        </div>
+        <div class="rule-box">
+          <h3>Keamanan & Ketertiban</h3>
+          <ul>
+            <li>Kontrol akses, pendataan tamu, dan pengawasan operasional harus jelas.</li>
+            <li>Ketertiban penghuni tetap menjadi tolok ukur utama.</li>
+            <li>Kebijakan lapangan harus konsisten, tidak tebang pilih.</li>
+          </ul>
+        </div>
+        <div class="rule-box">
+          <h3>Transparansi Pengelolaan</h3>
+          <ul>
+            <li>Perubahan kebijakan perlu dijelaskan dasar hukumnya.</li>
+            <li>Komunikasi publik harus membedakan fakta, opini, dan aspirasi.</li>
+            <li>Istilah “kesepakatan bersama” tidak boleh dipakai secara menyesatkan.</li>
+          </ul>
+        </div>
+        <div class="rule-box">
+          <h3>Kepentingan Bersama yang Sah</h3>
+          <ul>
+            <li>Lingkungan aman dan nyaman.</li>
+            <li>Nilai aset terjaga melalui tata kelola yang tertib.</li>
+            <li>Hubungan antar pihak dibangun di atas kepatuhan, bukan tekanan opini.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-title">
+        <h2>Perbedaan Narasi yang Perlu Diperjelas</h2>
+        <p>
+          Ini berguna untuk menunjukkan bahwa “partisipasi” tetap boleh, tetapi tidak boleh dipakai
+          sebagai alat pembenaran terhadap hal yang melanggar aturan.
+        </p>
+      </div>
+
+      <div class="compare">
+        <div class="card bad">
+          <h3>Narasi yang Perlu Dihindari</h3>
+          <ul class="mini-list">
+            <li>“Kalau mayoritas setuju, maka bisa dijalankan.”</li>
+            <li>“Yang penting mendukung investasi, soal aturan bisa dibicarakan nanti.”</li>
+            <li>“Aspirasi bersama dapat menentukan legalitas praktik di lapangan.”</li>
+            <li>“Profesional berarti fleksibel terhadap aturan demi kepentingan bisnis.”</li>
+          </ul>
+        </div>
+        <div class="card good">
+          <h3>Narasi yang Perlu Dipakai</h3>
+          <ul class="mini-list">
+            <li>“Aspirasi warga adalah masukan, bukan pengganti regulasi.”</li>
+            <li>“Setiap praktik di kawasan wajib sesuai fungsi dan izin yang berlaku.”</li>
+            <li>“Kepentingan ekonomi harus berjalan bersama kepatuhan hukum.”</li>
+            <li>“Perbaikan pengelolaan harus legal, tertib, dan transparan.”</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="langkah" style="background:var(--soft)">
+    <div class="container">
+      <div class="section-title">
+        <h2>Langkah Awal Bersama yang Lebih Tepat</h2>
+        <p>
+          Bagian ini bisa dijadikan alur tindakan yang tidak emosional dan tidak menyerang siapa pun,
+          tetapi tetap tegas pada aturan.
+        </p>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <h3>Inventarisasi Aturan</h3>
+          <p>Kumpulkan dasar hukum, ketentuan pengelolaan, fungsi bangunan, dan aturan internal yang relevan.</p>
+        </div>
+        <div class="step">
+          <h3>Pisahkan Fakta dan Opini</h3>
+          <p>Bedakan data lapangan, keluhan warga, asumsi, dan kampanye naratif agar diskusi tidak menyesatkan.</p>
+        </div>
+        <div class="step">
+          <h3>Susun Posisi Bersama yang Sah</h3>
+          <p>Rumuskan poin yang menegaskan: mendukung perbaikan, tetapi menolak praktik yang bertentangan dengan aturan.</p>
+        </div>
+        <div class="step">
+          <h3>Dorong Kebijakan Tertulis</h3>
+          <p>Minta seluruh perubahan diwujudkan dalam SOP dan kebijakan resmi yang dapat diuji dan dipertanggungjawabkan.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <div class="section-title">
+        <h2>FAQ Singkat</h2>
+        <p>Contoh tanya jawab yang bisa dipakai agar posisi halaman tetap edukatif dan tidak reaktif.</p>
+      </div>
+
+      <div class="faq">
+        <details open>
+          <summary>Apakah partisipasi warga itu salah?</summary>
+          <p>Tidak. Partisipasi warga justru penting. Yang keliru adalah bila partisipasi diposisikan seolah-olah dapat menggantikan ketentuan hukum atau melegitimasi praktik yang bertentangan dengan aturan.</p>
+        </details>
+        <details>
+          <summary>Apakah suara mayoritas bisa menentukan semua kebijakan?</summary>
+          <p>Tidak. Suara mayoritas dapat menjadi masukan sosial, tetapi kebijakan tetap harus tunduk pada dasar hukum, izin, fungsi bangunan, dan ketentuan pengelolaan resmi.</p>
+        </details>
+        <details>
+          <summary>Apakah menjaga nilai investasi bertentangan dengan kepatuhan aturan?</summary>
+          <p>Tidak. Justru nilai investasi yang sehat biasanya tumbuh dari tata kelola yang tertib, aman, transparan, dan patuh pada regulasi.</p>
+        </details>
+      </div>
+
+      <div class="highlight" style="border-left-color:var(--gold)">
+        <strong>Disclaimer template:</strong>
+        Halaman ini bersifat edukatif dan komunikatif. Untuk pernyataan yang menyebut aturan tertentu,
+        pemilik situs tetap perlu menyesuaikan dengan dokumen resmi, peraturan yang berlaku, dan
+        nasihat hukum profesional bila diperlukan.
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <h3 style="margin:0 0 8px;">Template Landing Page - Narasi Kepatuhan</h3>
+      <div class="footer-note">
+        Contoh penutup: “Kami mendukung ruang tinggal yang aman, tertib, dan bernilai.
+        Karena itu, setiap bentuk partisipasi dan perbaikan harus tetap berjalan di dalam koridor aturan.”
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
